@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongoose</title>
+</head>
+
+<body>
+    <h1>Product Page App</h1>
+    <ul>
+
+        <% for(let i=0; i < allProduct.length; i++) { %>
+            <li>
+                        <a href="/product/<%=i%>"> <img src="<%=allProduct[i].img %>"/></a><br>
+
+                        <a href="/product/<%=i%>">
+                            <%=allProduct[i].name %></a><br>
+
+                        <a href="/product/<%=i%>">
+                            <%=allProduct[i].type %>
+                        </a><br>
+
+
+                        <form action="/product/<%=i; %>?_method=DELETE" method="POST">
+                            <input type="submit" value="DELETE" />
+                        </form>
+
+            </li>
+            <% } %>
+    </ul>
+    <nav>
+        <a href="/product/new">Create a New Product</a>
+    </nav>
+    <a href="/product/">Back to Index</a>
+
+</body>
+
+</html>
