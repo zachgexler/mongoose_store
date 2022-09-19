@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		<link rel="stylesheet" href="/style.css">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product</title>
+	</head>
+	<body>
+		<div class="page_head">
+		<nav>
+			<a href="/products">Home</a>
+		</nav>
+		<h1><%=product.name %></h1>
+	</div>
+	<div class="show">
+		<img src="<%= product.img%>"><br />
+		<p><%= product.description %></p>
+        <p>Price: $<%= product.price%></p>
+        <p>Quantity: <%= product.qty%></p>
+		<% if (product.qty <= 0) { %>
+			<p>Out of Stock!</p>
+		<% } %>
+	</div>
+		<% if (product.qty > 0) { %>		
+			<form action="/products/<%=productId%>/buy?_method=PUT" method="POST">
+			<input class="delete"type="submit" value="Buy">
+		</form>
+		<% } %>
+        <form action="/products/<%=productId%>/edit">
+        <input class="delete"type='submit' value="Edit"/>
+        </form>
+	</body>
+</html>
